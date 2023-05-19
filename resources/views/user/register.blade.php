@@ -35,29 +35,53 @@
                 <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                     <h2 class="text-center">User Register</h2>
 
-                    <form action="" method="POST">
+                    <form action="{{ route('user.create') }}" method="POST">
                         @csrf
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="name">Name</label>
-                            <input type="text" id="name" class="form-control form-control-lg" name="name" placeholder="Enter name"/>
+                            <input type="text" id="name" class="form-control form-control-lg @error('name') is-invalid @enderror" name="name" placeholder="Enter name"/>
+
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="email">Email</label>
-                            <input type="email" id="email" class="form-control form-control-lg" name="email" placeholder="Enter email"/>
+                            <input type="email" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" placeholder="Enter email"/>
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="password">Password</label>
-                            <input type="password" id="password" class="form-control form-control-lg" name="password" placeholder="Enter password"/>
+                            <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="Enter password"/>
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="password">Confirm Password</label>
-                            <input type="password" id="password" class="form-control form-control-lg" name="password" placeholder="Re-Type"/>
+                            <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password_confirmation" placeholder="Re-Type password"/>
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <!-- Submit button -->

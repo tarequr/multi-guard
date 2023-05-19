@@ -51,7 +51,7 @@
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
 
                         <div class="divider d-flex align-items-center my-4">
-                            <p class="text-center fw-bold mx-3 mb-0 text-muted"><span>Don't have an account? <a href="{{ route('user.register') }}">register</a></span></p>
+                            <p class="text-center fw-bold mx-3 mb-0 text-muted"><span>Don't have an account? <a href="{{ route('admin.register') }}">register</a></span></p>
                         </div>
                     </form>
                 </div>
