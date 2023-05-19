@@ -28,6 +28,16 @@
             <div class="row align-items-center justify-content-center h-100">
                 <div class="col-md-12">
                     <h3 class="text-center">Welcome to User Dashboard</h3>
+
+                    <a class="btn btn-sm btn-warning float-right" href="{{ route('user.logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            <i class="mdi mdi-power text-danger"></i>{{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </div>
