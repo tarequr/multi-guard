@@ -35,17 +35,29 @@
                 <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                     <h2 class="text-center">User Login</h2>
 
-                    <form action="" method="POST">
+                    <form action="{{ route('user.login') }}" method="POST">
                         @csrf
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="email">Email</label>
-                            <input type="email" id="email" class="form-control form-control-lg" placeholder="Enter email"/>
+                            <input type="email" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" placeholder="Enter email"/>
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="password">Password</label>
-                            <input type="password" id="password" class="form-control form-control-lg" placeholder="Enter password"/>
+                            <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="Enter password"/>
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>

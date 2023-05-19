@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row mt-5 justify-content-end">
                 <div class="col-8">
-                    <a href="{{ route('user.login') }}" class="btn btn-success">User Login</a>
+                    <a href="{{ route('user.login.view') }}" class="btn btn-success">User Login</a>
                     <a href="{{ route('admin.login') }}" class="btn btn-success">Admin Login</a>
                 </div>
             </div>

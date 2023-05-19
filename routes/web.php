@@ -22,12 +22,13 @@ Route::get('/', function () {
 
 Route::get('user/register', [UserController::class, 'register'])->name('user.register');
 Route::post('user/create', [UserController::class, 'userCreate'])->name('user.create');
-Route::get('user/login', [UserController::class, 'login'])->name('user.login');
+Route::get('user/login', [UserController::class, 'showUserLoginForm'])->name('user.login.view');
+Route::post('user/login', [UserController::class, 'login'])->name('user.login');
 Route::post('user/logout', [UserController::class, 'logout'])->name('user.logout');
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
     Route::get('user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
-});
+// });
 
 Route::get('admin/register', [AdminController::class, 'register'])->name('admin.register');
 Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');

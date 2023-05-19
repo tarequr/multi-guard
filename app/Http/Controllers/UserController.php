@@ -37,9 +37,23 @@ class UserController extends Controller
         return view('user.dashboard');
     }
 
-    public function login()
+    public function showUserLoginForm()
     {
         return view('user.login');
+    }
+
+    public function login(Request $request)
+    {
+        $this->validate($request,[
+            'email'  => 'required',
+            'password' => 'required'
+        ]);
+
+        if (Auth::guard('web')->attempt($request->only(['email','password']), $request->get('remember'))){
+            return redirect()->intended('/user/dashboard');
+        }
+
+        return back()->withInput($request->only('email', 'remember'));
     }
 
     public function logout(Request $request): RedirectResponse
